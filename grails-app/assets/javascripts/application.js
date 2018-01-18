@@ -21,5 +21,36 @@ if (typeof jQuery !== 'undefined') {
 }
 
 $(document).ready(function(){
-    
+    $("#addnewperson").click(function(){
+        var name = $("#newname").val();
+        var email = $("#newemail").val();
+        var joiningDay = $("#newjoiningday").val();
+        var post = $("#newpost").val();
+        
+        var URL = $("#addnewperson").attr("data-url");
+        
+        console.log('in js' + joiningDay);
+        
+        $.ajax({
+            url:URL,
+            data:{
+                name : name,
+                email : email,
+                joiningDay : joiningDay,
+                post : post
+            },
+            success:function(response){
+                $("#personlist").append(response);
+            },
+            error:function(response,status,error) {
+                console.log(status);
+            },
+            complete:function(){
+                $("#newname").val("");
+                $("#newemail").val("");
+                $("#newjoiningday").val("");
+                $("#newpost").val('Software Engineer');
+            }
+        });
+    });
 });

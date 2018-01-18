@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sample title</title>
+        <title> Interview </title>
         
         <asset:stylesheet src="bootstrap.css"/>
         <asset:javascript src="jquery-2.2.0.min.js"/>
@@ -43,12 +43,12 @@
                             </tr>
                         </thead>
                         
-                        <tbody>
+                        <tbody id="personlist">
                             <g:each in="${person}">
                                 <tr class="info">
                                     <td>${it.name}</td>
                                     <td>${it.email}</td>
-                                    <td>${it.joiningDay}</td>
+                                    <td> <g:formatDate format="yyyy-MM-dd" date="${it.joiningDay}"/> </td>
                                     <td>${it.post}</td>
                                 </tr>
                             </g:each>
@@ -104,7 +104,7 @@
                         
                         <div class="form-group">        
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button class="btn btn-default">Submit</button>
+                                <button class="btn btn-default" id="addnewperson" data-url="${createLink(controller:'hello',action:'insert')}">Submit</button>
                             </div>
                         </div>
                     </div>
