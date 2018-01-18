@@ -12,6 +12,6 @@
         <title>Sample title</title>
     </head>
     <body>
-        <h1> ${person.name} joined on ${person.joiningDate} </h1>
+        <h1> ${person.name} joined on <g:formatDate format="yyyy-MM-dd" date="${person.joiningDay}"/> </h1>
     </body>
 </html>
