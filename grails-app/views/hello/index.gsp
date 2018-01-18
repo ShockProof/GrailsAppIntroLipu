@@ -15,6 +15,8 @@
         <asset:javascript src="jquery-2.2.0.min.js"/>
         <asset:javascript src="bootstrap.js"/>
         <asset:javascript src="Application.js"/>
+        <asset:javascript src="validation.js"/>
+        <asset:javascript src="additional.js"/>
         
     </head>
     <body>
@@ -59,35 +61,35 @@
                 </div>
                 
                 <!---->
-                <div class="col-sm-4 jumbotron">
+                <div class="col-sm-4 container jumbotron">
                     <h2>Add new Person:</h2>
-                    <div class="form-horizontal" >
+                    <form id="myform" class="form-horizontal" >
                         
                         <div class="form-group">
                             <label class="control-label col-sm-2">Name:</label>
                             <div class="col-sm-10">
-                                <input type="name" class="form-control" id="newname" placeholder="Enter name" />
+                                <input type="name" name="name" class="form-control" id="newname" placeholder="Enter name" />
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label col-sm-2">Email:</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="newemail" placeholder="Enter email" />
+                                <input type="email" name="email" class="form-control" id="newemail" placeholder="Enter email" />
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="control-label col-sm-2">Email:</label>
+                            <label class="control-label col-sm-2">Joining Date:</label>
                             <div class="col-sm-10">
-                                <input type="date" class="form-control" id="newjoiningday" />
+                                <input type="date" name="newjoiningday" class="form-control" id="newjoiningday" />
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="control-label col-sm-2">Email:</label>
+                            <label class="control-label col-sm-2">Post:</label>
                             <div class="col-sm-10">
-                                <select class="form-control" id="newpost" placeholder="Software Engineer" >
+                                <select name="post" class="form-control" id="newpost" placeholder="Software Engineer" >
                                     <option value="Software Engineer">Software Engineer</option>
                                     <option value="Project Manager">Project Manager</option>
                                     <option value="Human Resource">Human Resource</option>
@@ -98,16 +100,10 @@
                         
                         <div class="form-group">        
                             <div class="col-sm-offset-2 col-sm-10">
-                                <p style="color:red"></p>
+                                <button class="btn btn-default" id="addnewperson" data-url="${createLink(controller:'hello',action:'insert')}"> Submit </button>
                             </div>
                         </div>
-                        
-                        <div class="form-group">        
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button class="btn btn-default" id="addnewperson" data-url="${createLink(controller:'hello',action:'insert')}">Submit</button>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             
             </div>

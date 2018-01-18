@@ -21,7 +21,31 @@ if (typeof jQuery !== 'undefined') {
 }
 
 $(document).ready(function(){
+    
+    $( "#myform" ).validate({
+        rules: {
+            name: {
+                required: true,
+                minlength: 10
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            newjoiningday: {
+                required: true
+            },
+            post: {
+                required: true
+            }
+        }
+    });
+
+    
     $("#addnewperson").click(function(){
+        
+        if( $("#myform").valid() === false ) return;
+        
         var name = $("#newname").val();
         var email = $("#newemail").val();
         var joiningDay = $("#newjoiningday").val();
