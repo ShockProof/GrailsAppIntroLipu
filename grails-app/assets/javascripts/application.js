@@ -26,7 +26,7 @@ $(document).ready(function(){
         rules: {
             name: {
                 required: true,
-                minlength: 10
+                minlength: 5
             },
             email: {
                 required: true,
@@ -42,8 +42,8 @@ $(document).ready(function(){
     });
 
     
-    $("#addnewperson").click(function(){
-        
+    $("#addnewperson").click(function(e){
+        e.preventDefault();
         if( $("#myform").valid() === false ) return;
         
         var name = $("#newname").val();
